@@ -7,7 +7,7 @@ int main()
 	SetConsoleOutputCP(CP_UTF8);
 	srand(time(NULL));
 
-	
+	std::cout << "Word";
 
 
 
