@@ -85,8 +85,7 @@ char Sum(char one, char two)
 }*/
 /*SetArr(arr, size);
 	PrintArr(arr, size);*/
-
-void ShowArray(int name[], int length)
+/*void ShowArray(int name[], int length)
 {
 	for (int i = 0; i < length; i++)
 	{
@@ -106,9 +105,8 @@ void ShowArray(char name[], int length)
 	{
 		std::cout << name[i] << " ";
 	}
-}
-
-void FillArray(int name[], int length)
+}*/
+/*void FillArray(int name[], int length)
 {
 	for (int i = 0; i < length; i++)
 	{
@@ -128,8 +126,7 @@ void FillArray(char name[], int length)
 	{
 		name[i] = rand() % 192 + 32;
 	}
-}
-
+}*/
 /*template <typename T1>
 int BAHEK(T1 one, T1 two)
 {
@@ -159,17 +156,90 @@ int Umn(int num, int two)
 	return num + Umn(num, two - 1);
 }
 
+void Plus(int* num)
+{
+	*num += 10;
+}
+int Plus(int num)
+{
+	return num += 10;
+}
 
+void MySwap(int &a, int &b)
+{
+	int t = a;
+	a = b;
+	b = t;
+}
+
+void FillArray(int *arr, int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		*(arr + i) = rand() % 10;
+	}
+}
+
+int* Lol()
+{
+	int* car = new int;
+	return car;
+}
 
 int main()
 {
 	SetConsoleCP(CP_UTF8);
-	SetConsoleOutputCP(CP_UTF8);
-
+	SetConsoleOutputCP(1251);
+	srand(time(NULL));
 	
-	
+	/*	int a = 5;
+	//Plus(&a);
+	a = Plus(a);
+	int b = a;
+	Plus(&b);
+	int* ptr = &a;
+	//ptr = &b;
 
-	std::cout << "\n";
+	std::cout << a << "\n";
+	std::cout << &a << "\n";
+	std::cout << ptr << "\n";
+	std::cout << *ptr << "\n";
+	std::cout << &ptr << "\n";*/
+	/*	int one = 10, two = 25;
+
+	std::cout << one << " " << two << "\n";
+	std::swap(one, two); //меняет местами значения переменных
+	std::cout << one << " " << two << "\n";
+
+	std::cout << one << " " << two << "\n";
+	MySwap(one, two);
+	std::cout << one << " " << two << "\n";*/
+	/*const int size = 5;
+	int arr[size]{ 3,1,2,5,6 };
+	
+	FillArray(arr, size);
+
+	std::cout << arr << "\n";
+	std::cout << *arr << "\n";
+	std::cout << arr + 1 << "\n";
+	std::cout << *(arr + 1) << "\n";
+
+	std::cout << arr + 5 << "\n";
+	*(arr + 5) = 100;
+	std::cout << *(arr + 5) << "\n";*/
+
+	int a = 0;
+	int* car = new int;
+	int *Serega = Lol();
+	delete Serega;
+	delete car;
+	
+	Serega = nullptr;
+	car = nullptr;
+	car = &a;
+	car = new int;
+	delete car;
+
 
 	return 0;
 }
