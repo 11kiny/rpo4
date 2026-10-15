@@ -1,19 +1,295 @@
 #include <iostream>
 #include <Windows.h>
 
+/*
+тип_возврата Имя_функции (аргументы_функции, ...)
+{
+	тело_функции
+}
+*/
+/*
+void PrintHello()
+{
+	int a = 0;
+	std::cout << "Hello\n";
+}
+
+void PrintNum(int number)
+{
+	number += 100;
+	if (number > 0)
+	{
+		return;
+	}
+	std::cout << number << "\n";
+}
+
+int Sum(int one, int two)
+{
+	return 1123;
+}
+*/
+/*double Sum(double one, double two)
+{
+	return one + two;
+}
+double Razn(double one, double two)
+{
+	return one - two;
+}
+double Proiz(double one, double two)
+{
+	return one * two;
+}
+double Chast(double one, double two)
+{
+	return one / two;
+}
+double MyPow(double one, double two)
+{
+	double result = one;
+	for (int i = 1; i < two; i++)
+	{
+		result = result * one;
+	}
+	return result;
+}*/
+/*void PrintArr(int name[], int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		std::cout << name[i] << " ";
+	}
+}
+
+void SetArr(int name[], int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		name[i] = rand() % 6;
+	}
+}*/
+/*int Sum(int one, int two)
+{
+	return one + two;
+}
+
+double Sum(double one, double two)
+{
+	return one + two;
+}
+
+char Sum(char one, char two)
+{
+	return one + two;
+}*/
+/*SetArr(arr, size);
+	PrintArr(arr, size);*/
+
+void ShowArray(int name[], int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		std::cout << name[i] << " ";
+	}
+}
+void ShowArray(double name[], int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		std::cout << name[i] << " ";
+	}
+}
+void ShowArray(char name[], int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		std::cout << name[i] << " ";
+	}
+}
+
+void FillArray(int name[], int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		name[i] = rand() % 9 + 1;
+	}
+}
+void FillArray(double name[], int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		name[i] = (rand() % 20 + 1) + (double)(rand() % 9 + 1) / 10;
+	}
+}
+void FillArray(char name[], int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		name[i] = rand() % 192 + 32;
+	}
+}
+
+/*template <typename T1>
+int BAHEK(T1 one, T1 two)
+{
+	return one - two;
+}
+	//BAHEK(3.7, 4.6);*/
+
+int Fac(int num)
+{
+	if (num < 0)
+	{
+		return 0;
+	}
+	if (num == 0)
+	{
+		return 1;
+	}
+	return num * Fac(num - 1);
+}
+
+int Umn(int num, int two)
+{
+	if (two == 0)
+	{
+		return 0;
+	}
+	return num + Umn(num, two - 1);
+}
+
+
+
 int main()
 {
 	SetConsoleCP(CP_UTF8);
 	SetConsoleOutputCP(CP_UTF8);
-	srand(time(NULL));
 
-	std::cout << "Word";
+	
+	
 
-
-
+	std::cout << "\n";
 
 	return 0;
 }
+
+/*int ChoiceCat, ChoiceDrink, choiceYesOrNo, korzina = 0;
+	double apple = 115, orange = 130, abricos = 145, grusha = 180, tomato = 100, onion = 110, cucumber = 90, garlic = 200, petrush = 265, AllSum = 0, colvo;
+
+	std::cout << "\t\tМагазин \"Соки Севы\"\n\n1. Фруктовые соки;\n2. Овощные соки;\n3. Чаи.\n\nКорзина: " << korzina << "\n\nВыберите категорию напитков : ";
+	std::cin >> ChoiceCat;
+
+	std::cout << "\n";
+	while (true)
+	{
+		if (ChoiceCat == 1)
+		{
+			system("cls");
+			std::cout << "\n\tФруктовые соки\n\n1. Яблочный сок;\n2. Апельсиновый сок;\n3. Абрикосовый сок;\n4. Грушевый сок.\n\nВыберите напиток: ";
+			std::cin >> ChoiceDrink;
+			while (true)
+			{
+				if (ChoiceDrink == 1)
+				{
+					std::cout << "\nСтоимость яблочного сока составляет 115 рублей.";
+					system("cls");
+					std::cout << "\nСколько литров вы хотите взять?\n\nВыбор: ";
+					std::cin >> colvo;
+					std::cout << "\nВы хотите положить в корзину сок?\n\n1. Да;\n0. Нет.\n\nВыбор: ";
+					std::cin >> choiceYesOrNo;
+					if (choiceYesOrNo == 1)
+					{
+						AllSum = korzina + apple;	
+					}
+					else if (choiceYesOrNo == 0)
+					{
+						break;
+					}
+					else
+					{
+						std::cout << "Неверный ввод!";
+						Sleep(1500);
+					}
+				}
+				else if (ChoiceDrink == 2)
+				{
+					std::cout << "\nСтоимость апельсинового сока составляет 130 рублей.";
+					system("cls");
+					std::cout << "\nСколько литров вы хотите взять?\n\nВыбор: ";
+					std::cin >> colvo;
+					while (colvo >= 0)
+					{
+						std::cout << "\nВы хотите положить в корзину сок?\n\n1. Да;\n2. Нет.\n\nВыбор: ";
+						std::cin >> choiceYesOrNo;
+						if (choiceYesOrNo == 1)
+						{
+							AllSum = korzina + apple;
+						}
+						else if (choiceYesOrNo == 0)
+						{
+							break;
+						}
+						else
+						{
+							std::cout << "Неверный ввод!";
+							Sleep(1500);
+						}
+					}
+				}
+				else if (ChoiceDrink == 3)
+				{
+					std::cout << "\nСтоимость литра абрикосового сока составляет 145 рублей.\n";
+					do
+					{
+						system("cls");
+						std::cout << "\nВы хотите положить сок в корзину?\n\n1. Да;\n0. Нет.\nВыбор: ";
+						std::cin >> choiceYesOrNo;
+						if (choiceYesOrNo == 1)
+						{
+							AllSum = korzina + apple;
+						}
+						else if (choiceYesOrNo == 0)
+						{
+							break;
+						}
+						else
+						{
+							std::cout << "Неверный ввод!";
+							Sleep(1500);
+						}
+					} while (choiceYesOrNo >= 0 && choiceYesOrNo <= 1);
+				}
+				else if (ChoiceDrink == 4)
+				{
+					std::cout << "\nСтоимость грушевого сока составляет 180 рублей.\n";
+				}
+				else
+				{
+					std::cout << "Не получилось обработать операцию. Повторите попытку!";
+				}
+			}
+		
+		}
+
+		else if (ChoiceCat == 2)
+		{
+			std::cout << "\tОвощные соки\n\n1. Томатный сок;\n2. Луковый сок;\n3. Огуречный сок.\n\nВыберите напиток: ";
+			std::cin >> ChoiceDrink;
+
+		}
+		else if (ChoiceCat == 3)
+		{
+			std::cout << "\tЧаи\n\n1. Чесночный;\n2. Петрушевый.\n\nВыберите напиток: ";
+			std::cin >> ChoiceDrink;
+
+		}
+		else
+		{
+			std::cout << "Неверный ввод!";
+		}
+	}*/
+
 /*
 
 	Типы данных:
@@ -43,7 +319,6 @@ int main()
 
 	ТАБУ:	goto		and or not		int имяПеременной
 */
-
 /*double a = 0, b = 0, c = 0, x1 = 0, x2 = 0, d = 0;
 
 	std::cout << "Решение полного квадратного уравнения\n\n";
@@ -76,7 +351,6 @@ int main()
 		std::cout << "Первый корень: " << x1 << "\n\n";
 		std::cout << "Второй корень: " << x2 << "\n\n";
 	}*/
-
 /*
 SetConsoleCP(CP_UTF8);
 SetConsoleOutputCP(CP_UTF8);	//	1251
@@ -88,18 +362,30 @@ std::cout << "\t" << 8 << " гривен\n";
 std::cout << "Местоимение";
 */
 
-	// тип_данных имя_переменных
+// тип_данных имя_переменных
 
-	/*double a = 4.3;
+/*	const int size = 7;
+	int arr1[size]{};
+	double arr2[size]{};
+	char arr3[size]{};
+	
+	FillArray(arr1, size);
+	ShowArray(arr1, size);
+	std::cout << "\n";
+	FillArray(arr2, size);
+	ShowArray(arr2, size);
+	std::cout << "\n";
+	FillArray(arr3, size);
+	ShowArray(arr3, size);*/
+/*double a = 4.3;
 	double b = 4.3;
 
 	if (a == b)
 	{
 		std::cout << "Tumyp";
 	}
-	*/
-	
-	/*if (a == 0)
+	*/	
+/*if (a == 0)
 	{
 		std::cout << "Hello\n";
 	}
@@ -116,8 +402,7 @@ std::cout << "Местоимение";
 		std::cout << 1;
 	}
 	*/
-
-	/*SetConsoleCP(CP_UTF8);
+/*SetConsoleCP(CP_UTF8);
 	SetConsoleOutputCP(CP_UTF8);	//	1251
 
 	double one = 0;
@@ -169,3 +454,44 @@ std::cout << "Местоимение";
 		std::cout << "Ошибка!";
 	}
 	*/
+/*int arr[size]{};
+
+	for (size_t i = 0; i < size; i++)
+	{
+		arr[i] = rand() % 6;
+		std::cout << arr[i] << " ";
+	}
+	
+	std::cout << "\n";
+
+	for (size_t i = 0; i < size; i++)
+	{
+		std::cout << arr[i] << " ";
+
+	}
+
+	for (size_t i = 0; i < size; i++)
+	{
+
+
+		if (arr[i] == 0)
+		{
+			std::cout << -1 << " ";
+		}
+
+	}*/
+/*const int row = 3, col = 4;
+	int arr[row][col]{};
+	int summ = 0;
+	
+	arr[0][0] = 100;
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < col; j++)
+		{
+			arr[i][j] = rand() % 10;
+			summ += arr[i][j];
+			std::cout << arr[i][j] << "\t";
+		}
+		std::cout << "|\t" << summ << " \n";
+	}*/
