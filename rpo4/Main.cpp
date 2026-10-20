@@ -133,8 +133,7 @@ int BAHEK(T1 one, T1 two)
 	return one - two;
 }
 	//BAHEK(3.7, 4.6);*/
-
-int Fac(int num)
+/*int Fac(int num)
 {
 	if (num < 0)
 	{
@@ -146,7 +145,6 @@ int Fac(int num)
 	}
 	return num * Fac(num - 1);
 }
-
 int Umn(int num, int two)
 {
 	if (two == 0)
@@ -155,7 +153,6 @@ int Umn(int num, int two)
 	}
 	return num + Umn(num, two - 1);
 }
-
 void Plus(int* num)
 {
 	*num += 10;
@@ -164,14 +161,12 @@ int Plus(int num)
 {
 	return num += 10;
 }
-
 void MySwap(int &a, int &b)
 {
 	int t = a;
 	a = b;
 	b = t;
 }
-
 void FillArray(int *arr, int size)
 {
 	for (int i = 0; i < size; i++)
@@ -179,17 +174,54 @@ void FillArray(int *arr, int size)
 		*(arr + i) = rand() % 10;
 	}
 }
-
 int* Lol()
 {
 	int* car = new int;
 	return car;
+}*/
+
+void PushArray(int *&arr, int &size)
+{
+	int *temp = new int[size];
+	
+	for (int i = 0; i < size; i++)
+	{
+		temp[i] = arr[i];
+	}
+	delete[] arr;
+	
+	size++;
+	arr = new int[size];
+	for (int i = 0; i < size - 1; i++)
+	{
+		arr[i] = temp[i];
+	}
+	delete[] temp;
+
+	arr[size - 1] = 100;
+}
+
+void PushArray2(int*& arr, int& size)
+{
+	size++;
+
+	int* temp = new int[size];
+
+	for (int i = 0; i < size - 10; i++)
+	{
+		temp[i] = arr[i];
+	}
+	temp[size - 1] = 100;
+
+	std::swap(arr, temp);
+
+	delete[]temp;
 }
 
 int main()
 {
 	SetConsoleCP(CP_UTF8);
-	SetConsoleOutputCP(1251);
+	SetConsoleOutputCP(CP_UTF8);
 	srand(time(NULL));
 	
 	/*	int a = 5;
@@ -227,19 +259,78 @@ int main()
 	std::cout << arr + 5 << "\n";
 	*(arr + 5) = 100;
 	std::cout << *(arr + 5) << "\n";*/
+	/*int* arr = new int[5];
+	arr[0] = 10;
+	delete[] arr;
+	arr = nullptr;*/
+	/*int row = 3, col = 4;
 
-	int a = 0;
-	int* car = new int;
-	int *Serega = Lol();
-	delete Serega;
-	delete car;
+	int ** name = new int *[row];
+	for (int i = 0; i < row; i++)
+	{
+		name[i] = new int[col];
+	}
+	name[1][2] = 100;
+	for (int i = 0; i < row; i++)
+	{
+		delete[] name[i];
+	}
+	delete[] name;
+	name = nullptr;*/
+	/*int side = 2, row = 4, col1 = 4, col2 = 3; 
+
+	int*** serega = new int**[side];
+
+	for (int i = 0; i < side; i++)
+	{
+		serega[i] = new int* [row];
+	}
+
+	for (int i = 0; i < row; i++)
+	{
+		serega[0][i] = new int[col1];
+	}
+
+	serega[1][0] = new int[2];
+	for (int i = 1; i < row; i++)
+	{
+		serega[1][i] = new int[col2];
+	}
+
+
+	for (int i = 0; i < side; i++)
+	{
+		for (int j = 0; j < row; j++)
+		{
+			delete[] serega[i][j];
+		}
+		delete[] serega[i];
+	}
+	delete[] serega;*/
+
+	int size = 5;
+	int* ptr = nullptr;
+
+
+
+
+
+	/*int* arr = new int[size]{1, 2, 3, 4, 5};
+	for (int i = 0; i < size; i++)
+	{
+		std::cout << arr[i] << " ";
+	}
+	std::cout << "\n\n";
 	
-	Serega = nullptr;
-	car = nullptr;
-	car = &a;
-	car = new int;
-	delete car;
+	PushArray(arr, size);
+	for (int i = 0; i < size; i++)
+	{
+		std::cout << arr[i] << " ";
+	}
 
+	delete[]arr;*/
+
+	std::cout << "\n";
 
 	return 0;
 }
@@ -359,7 +450,6 @@ int main()
 			std::cout << "Неверный ввод!";
 		}
 	}*/
-
 /*
 
 	Типы данных:
