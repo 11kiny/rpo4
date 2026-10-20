@@ -200,7 +200,6 @@ void PushArray(int *&arr, int &size)
 
 	arr[size - 1] = 100;
 }
-
 void PushArray2(int*& arr, int& size)
 {
 	size++;
@@ -216,6 +215,25 @@ void PushArray2(int*& arr, int& size)
 	std::swap(arr, temp);
 
 	delete[]temp;
+}
+
+void SetMem(int*& arr, int size)
+{
+	if (arr != nullptr)
+	{
+		delete[]arr;
+	}
+	arr = new int[size];
+}
+
+void DelArr(int*& arr)
+{
+	if (arr == nullptr)
+	{
+		return;
+	}
+	delete[]arr;
+	arr = nullptr;
 }
 
 int main()
