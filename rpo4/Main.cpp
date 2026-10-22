@@ -1,5 +1,8 @@
+#define NOMINMAX
 #include <iostream>
 #include <Windows.h>
+#include <string>
+#include <limits>
 
 /*
 тип_возврата Имя_функции (аргументы_функции, ...)
@@ -325,14 +328,6 @@ int main()
 		delete[] serega[i];
 	}
 	delete[] serega;*/
-
-	int size = 5;
-	int* ptr = nullptr;
-
-
-
-
-
 	/*int* arr = new int[size]{1, 2, 3, 4, 5};
 	for (int i = 0; i < size; i++)
 	{
@@ -347,7 +342,117 @@ int main()
 	}
 
 	delete[]arr;*/
+	
+	// отладка
+	/*
+	// отладка
 
+	std::string name = "Text";
+	std::string one = "Иван";
+	std::string* ptr = nullptr;
+	ptr = new std::string[11];
+	delete[] ptr;
+
+	std::string arr[5]{ "Text", "Serega", "Garlic", "Apple", "Timur"};
+
+	//auto it = std::find(arr->begin(), arr->end(), "Apple");
+
+	//name.erase(2);
+
+	for (int i = 0; i < name.size(); i++)
+	{
+		if (name[i] == 'T')
+		{
+			name[i] = 't';
+		}
+		std::cout << name[i];
+	}*/
+	/*	//std::cout << "Введите текст: ";
+		// откуда_взять_текст, куда_его_присвоить
+		std::getline(std::cin, one);
+		std::cout << one << "\n";
+
+		std::getline(std::cin, one, '\n'); //pahom@mail.ru
+		std::cout << one << "\n";
+		//std::cin >> num;
+		//std::cout << num << "\n";
+
+		//std::cin.ignore(32767, '\n'); // норм варик
+
+		// top вариант
+		//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+		std::getline(std::cin, one);
+		std::cout << one << "\n";*/
+	
+	std::string login;
+	std::string password;
+	std::string login_Correct;
+	std::string password_Correct;
+
+	
+
+	//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	while (true)
+	{
+		std::cout << "\tРегистрация учётной записи\n\n";
+
+		std::cout << "Введите логин (5-15 символов): ";
+		std::getline(std::cin, login);
+		std::cout << "\nВведите пароль (5-15 символов): ";
+		std::getline(std::cin, password);
+		if ((login.size() >= 5 && login.size() <= 15) && (password.size() >= 5 && password.size() <= 15))
+		{
+			while (true)
+			{
+
+			}
+		}
+	}
+	while (true)
+	{
+
+	}
+
+
+/*	while (true)
+	{
+		std::cout << "\tАвторизация в учётную запись\n\n";
+
+		std::cout << "Введите логин (5-15 символов): ";
+		std::getline(std::cin, login_Correct);
+		for (int i = 0; i < login_Correct.size(); i++)
+		{
+			if (login_Correct[i] >= 5 && login_Correct[i] <= 15)
+			{
+				login = login_Correct;
+			}
+			else if (login_Correct[i] <= 5 || login_Correct[i] >= 15)
+			{
+				std::cout << "Неверный ввод! Попробуйте ещё раз.";
+			}
+		}
+
+
+		std::cout << "\nВведите пароль (5-15 символов): ";
+		std::getline(std::cin, password_Correct);
+		/*for (int i = 0; i < password_Correct.size(); i++)
+		{
+			if (password_Correct[i] >= 5 && password_Correct[i] <= 15)
+			{
+				std::cout << password_Correct;
+			}
+			else
+			{
+				std::cout << "Неверный ввод!\n";
+				return 0;
+			}
+		}
+	}
+*/	
+	
+	std::cout << login_Correct << " " << password_Correct;
+	
 	std::cout << "\n";
 
 	return 0;
