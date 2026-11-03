@@ -1,15 +1,20 @@
 #define NOMINMAX
-#include <iostream>
-#include <Windows.h>
-#include <string>
-#include <limits>
 
-/*
-тип_возврата Имя_функции (аргументы_функции, ...)
+#include "Test.hpp"
+
+#include <Windows.h>
+#include <limits>
+#include <io.h>		//_setmode, fileno
+#include <fcntl.h>	//_O_U16TEXT
+
+
+
+
+/*тип_возврата Имя_функции (аргументы_функции, ...)
 {
 	тело_функции
-}
-*/
+}*/
+
 /*
 void PrintHello()
 {
@@ -135,7 +140,7 @@ int BAHEK(T1 one, T1 two)
 {
 	return one - two;
 }
-	//BAHEK(3.7, 4.6);*/
+	BAHEK(3.7, 4.6);*/
 /*int Fac(int num)
 {
 	if (num < 0)
@@ -219,7 +224,6 @@ void PushArray2(int*& arr, int& size)
 
 	delete[]temp;
 }
-
 void SetMem(int*& arr, int size)
 {
 	if (arr != nullptr)
@@ -228,7 +232,6 @@ void SetMem(int*& arr, int size)
 	}
 	arr = new int[size];
 }
-
 void DelArr(int*& arr)
 {
 	if (arr == nullptr)
@@ -241,222 +244,85 @@ void DelArr(int*& arr)
 
 int main()
 {
-	SetConsoleCP(CP_UTF8);
-	SetConsoleOutputCP(CP_UTF8);
-	srand(time(NULL));
-	
-	/*	int a = 5;
-	//Plus(&a);
-	a = Plus(a);
-	int b = a;
-	Plus(&b);
-	int* ptr = &a;
-	//ptr = &b;
+	_setmode(_fileno(stdin), _O_U16TEXT);
+	_setmode(_fileno(stdout), _O_U16TEXT);
 
-	std::cout << a << "\n";
-	std::cout << &a << "\n";
-	std::cout << ptr << "\n";
-	std::cout << *ptr << "\n";
-	std::cout << &ptr << "\n";*/
-	/*	int one = 10, two = 25;
-
-	std::cout << one << " " << two << "\n";
-	std::swap(one, two); //меняет местами значения переменных
-	std::cout << one << " " << two << "\n";
-
-	std::cout << one << " " << two << "\n";
-	MySwap(one, two);
-	std::cout << one << " " << two << "\n";*/
-	/*const int size = 5;
-	int arr[size]{ 3,1,2,5,6 };
-	
-	FillArray(arr, size);
-
-	std::cout << arr << "\n";
-	std::cout << *arr << "\n";
-	std::cout << arr + 1 << "\n";
-	std::cout << *(arr + 1) << "\n";
-
-	std::cout << arr + 5 << "\n";
-	*(arr + 5) = 100;
-	std::cout << *(arr + 5) << "\n";*/
-	/*int* arr = new int[5];
-	arr[0] = 10;
-	delete[] arr;
-	arr = nullptr;*/
-	/*int row = 3, col = 4;
-
-	int ** name = new int *[row];
-	for (int i = 0; i < row; i++)
-	{
-		name[i] = new int[col];
-	}
-	name[1][2] = 100;
-	for (int i = 0; i < row; i++)
-	{
-		delete[] name[i];
-	}
-	delete[] name;
-	name = nullptr;*/
-	/*int side = 2, row = 4, col1 = 4, col2 = 3; 
-
-	int*** serega = new int**[side];
-
-	for (int i = 0; i < side; i++)
-	{
-		serega[i] = new int* [row];
-	}
-
-	for (int i = 0; i < row; i++)
-	{
-		serega[0][i] = new int[col1];
-	}
-
-	serega[1][0] = new int[2];
-	for (int i = 1; i < row; i++)
-	{
-		serega[1][i] = new int[col2];
-	}
+	PrintHello();
+	one = 10;
 
 
-	for (int i = 0; i < side; i++)
-	{
-		for (int j = 0; j < row; j++)
-		{
-			delete[] serega[i][j];
-		}
-		delete[] serega[i];
-	}
-	delete[] serega;*/
-	/*int* arr = new int[size]{1, 2, 3, 4, 5};
-	for (int i = 0; i < size; i++)
-	{
-		std::cout << arr[i] << " ";
-	}
-	std::cout << "\n\n";
-	
-	PushArray(arr, size);
-	for (int i = 0; i < size; i++)
-	{
-		std::cout << arr[i] << " ";
-	}
 
-	delete[]arr;*/
-	
-	// отладка
+
+
+	system("pause");
+
 	/*
-	// отладка
+		std::string							std::wstring
+		char								wchar_t
+		std::cout							std::wcout
+		std::cin							std::wcin
+		std::getline						std::getline
+		std::endl							std::endl
 
-	std::string name = "Text";
-	std::string one = "Иван";
-	std::string* ptr = nullptr;
-	ptr = new std::string[11];
-	delete[] ptr;
+		"Text"								L"Text"
+		'h'									L'h'
+	*/	
 
-	std::string arr[5]{ "Text", "Serega", "Garlic", "Apple", "Timur"};
+	/*
 
-	//auto it = std::find(arr->begin(), arr->end(), "Apple");
+	std::wstring one, two;
+	std::wcout << L"Введите текст 1: ";
+	std::getline(std::wcin, one, L'\n');
+	std::wcout << L"Введите текст 2: ";
+	std::getline(std::wcin, two, L'\n');
 
-	//name.erase(2);
 
-	for (int i = 0; i < name.size(); i++)
+	std::wcout << one << L"\n" << two << L"\n\n";*/
+	/*	std::wstring name = L"Hello World!\n";
+	std::wcout << name;
+	
+
+	//найти позицию какого-то слова внутри строки
+
+	size_t position = name.find(L"World");
+	std::wcout << position << L"\n\n";
+	if (position != std::wstring::npos)
 	{
-		if (name[i] == 'T')
-		{
-			name[i] = 't';
-		}
-		std::cout << name[i];
+		std::wcout << L"Слово найдено!\n\n";
+	}
+
+	// возврат какого-то участка строки. С какого индекса и сколько символов
+	std::wcout << name.substr(4, 5) << L"\n" << name << L"\n\n";
+
+	// вырезать. С какого индекса и сколько символов
+	name.erase(2, 5);
+	std::wcout << name << L"\n\n";
+
+	// вставка 
+	name.insert(2, L" Тимур лох ");
+	std::wcout << name << L"\n\n";
+
+	// замена
+	name = L"Всем привет. Я устал\n";
+	name.replace(5, 6, L"пока");
+	// с какого индекса начать, сколько символов вырезать, какой текст вставить
+	std::wcout << name << L"\n\n";
+
+	// очистка
+	name.clear();
+	if (name.empty())
+	{
+		std::wcout << L"Строка пустая\n\n";
 	}*/
-	/*	//std::cout << "Введите текст: ";
-		// откуда_взять_текст, куда_его_присвоить
-		std::getline(std::cin, one);
-		std::cout << one << "\n";
-
-		std::getline(std::cin, one, '\n'); //pahom@mail.ru
-		std::cout << one << "\n";
-		//std::cin >> num;
-		//std::cout << num << "\n";
-
-		//std::cin.ignore(32767, '\n'); // норм варик
-
-		// top вариант
-		//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
-		std::getline(std::cin, one);
-		std::cout << one << "\n";*/
-	
-	std::string login;
-	std::string password;
-	std::string login_Correct;
-	std::string password_Correct;
-
-	
-
-	//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	while (true)
-	{
-		std::cout << "\tРегистрация учётной записи\n\n";
-
-		std::cout << "Введите логин (5-15 символов): ";
-		std::getline(std::cin, login);
-		std::cout << "\nВведите пароль (5-15 символов): ";
-		std::getline(std::cin, password);
-		if ((login.size() >= 5 && login.size() <= 15) && (password.size() >= 5 && password.size() <= 15))
-		{
-			while (true)
-			{
-
-			}
-		}
-	}
-	while (true)
-	{
-
-	}
-
-
-/*	while (true)
-	{
-		std::cout << "\tАвторизация в учётную запись\n\n";
-
-		std::cout << "Введите логин (5-15 символов): ";
-		std::getline(std::cin, login_Correct);
-		for (int i = 0; i < login_Correct.size(); i++)
-		{
-			if (login_Correct[i] >= 5 && login_Correct[i] <= 15)
-			{
-				login = login_Correct;
-			}
-			else if (login_Correct[i] <= 5 || login_Correct[i] >= 15)
-			{
-				std::cout << "Неверный ввод! Попробуйте ещё раз.";
-			}
-		}
-
-
-		std::cout << "\nВведите пароль (5-15 символов): ";
-		std::getline(std::cin, password_Correct);
-		/*for (int i = 0; i < password_Correct.size(); i++)
-		{
-			if (password_Correct[i] >= 5 && password_Correct[i] <= 15)
-			{
-				std::cout << password_Correct;
-			}
-			else
-			{
-				std::cout << "Неверный ввод!\n";
-				return 0;
-			}
-		}
-	}
-*/	
-	
-	std::cout << login_Correct << " " << password_Correct;
-	
-	std::cout << "\n";
 
 	return 0;
 }
+
+
+
+
+
+
 
 /*int ChoiceCat, ChoiceDrink, choiceYesOrNo, korzina = 0;
 	double apple = 115, orange = 130, abricos = 145, grusha = 180, tomato = 100, onion = 110, cucumber = 90, garlic = 200, petrush = 265, AllSum = 0, colvo;
@@ -577,7 +443,7 @@ int main()
 
 	Типы данных:
 
-	bool							true/false	0 - false
+	bool							true/false		0 - false
 	char							'-'		43		-128 -- 127
 	unsighned char					'#'				0 - 256
 
@@ -778,3 +644,218 @@ std::cout << "Местоимение";
 		}
 		std::cout << "|\t" << summ << " \n";
 	}*/
+
+/*	int a = 5;
+	//Plus(&a);
+	a = Plus(a);
+	int b = a;
+	Plus(&b);
+	int* ptr = &a;
+	//ptr = &b;
+
+	std::cout << a << "\n";
+	std::cout << &a << "\n";
+	std::cout << ptr << "\n";
+	std::cout << *ptr << "\n";
+	std::cout << &ptr << "\n";*/
+/*	int one = 10, two = 25;
+
+	std::cout << one << " " << two << "\n";
+	std::swap(one, two); //меняет местами значения переменных
+	std::cout << one << " " << two << "\n";
+
+	std::cout << one << " " << two << "\n";
+	MySwap(one, two);
+	std::cout << one << " " << two << "\n";*/
+/*const int size = 5;
+	int arr[size]{ 3,1,2,5,6 };
+	
+	FillArray(arr, size);
+
+	std::cout << arr << "\n";
+	std::cout << *arr << "\n";
+	std::cout << arr + 1 << "\n";
+	std::cout << *(arr + 1) << "\n";
+
+	std::cout << arr + 5 << "\n";
+	*(arr + 5) = 100;
+	std::cout << *(arr + 5) << "\n";*/
+/*int* arr = new int[5];
+	arr[0] = 10;
+	delete[] arr;
+	arr = nullptr;*/
+/*int row = 3, col = 4;
+
+	int ** name = new int *[row];
+	for (int i = 0; i < row; i++)
+	{
+		name[i] = new int[col];
+	}
+	name[1][2] = 100;
+	for (int i = 0; i < row; i++)
+	{
+		delete[] name[i];
+	}
+	delete[] name;
+	name = nullptr;*/
+/*int side = 2, row = 4, col1 = 4, col2 = 3; 
+
+	int*** serega = new int**[side];
+
+	for (int i = 0; i < side; i++)
+	{
+		serega[i] = new int* [row];
+	}
+
+	for (int i = 0; i < row; i++)
+	{
+		serega[0][i] = new int[col1];
+	}
+
+	serega[1][0] = new int[2];
+	for (int i = 1; i < row; i++)
+	{
+		serega[1][i] = new int[col2];
+	}
+
+
+	for (int i = 0; i < side; i++)
+	{
+		for (int j = 0; j < row; j++)
+		{
+			delete[] serega[i][j];
+		}
+		delete[] serega[i];
+	}
+	delete[] serega;*/
+/*int* arr = new int[size]{1, 2, 3, 4, 5};
+	for (int i = 0; i < size; i++)
+	{
+		std::cout << arr[i] << " ";
+	}
+	std::cout << "\n\n";
+	
+	PushArray(arr, size);
+	for (int i = 0; i < size; i++)
+	{
+		std::cout << arr[i] << " ";
+	}
+
+	delete[]arr;*/
+	
+// отладка
+/*
+	// отладка
+
+	std::string name = "Text";
+	std::string one = "Иван";
+	std::string* ptr = nullptr;
+	ptr = new std::string[11];
+	delete[] ptr;
+
+	std::string arr[5]{ "Text", "Serega", "Garlic", "Apple", "Timur"};
+
+	//auto it = std::find(arr->begin(), arr->end(), "Apple");
+
+	//name.erase(2);
+
+	for (int i = 0; i < name.size(); i++)
+	{
+		if (name[i] == 'T')
+		{
+			name[i] = 't';
+		}
+		std::cout << name[i];
+	}*/
+/*	//std::cout << "Введите текст: ";
+		// откуда_взять_текст, куда_его_присвоить
+		std::getline(std::cin, one);
+		std::cout << one << "\n";
+
+		std::getline(std::cin, one, '\n'); //pahom@mail.ru
+		std::cout << one << "\n";
+		//std::cin >> num;
+		//std::cout << num << "\n";
+
+		//std::cin.ignore(32767, '\n'); // норм варик
+
+		// top вариант
+		//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+		std::getline(std::cin, one);
+		std::cout << one << "\n";*/
+/*	std::string login;
+	std::string password;
+	std::string login_Correct;
+	std::string password_Correct;
+
+	
+
+	//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	while (true)
+	{
+		std::cout << "\tРегистрация учётной записи\n\n";
+
+		std::cout << "Введите логин (5-15 символов): ";
+		std::getline(std::cin, login);
+		std::cout << "\nВведите пароль (5-15 символов): ";
+		std::getline(std::cin, password);
+		if ((login.size() >= 5 && login.size() <= 15) && (password.size() >= 5 && password.size() <= 15))
+		{
+			while (true)
+			{
+				system("cls");
+				std::cout << "Введите логин: \n";
+				std::getline(std::cin, login_Correct);
+				std::cout << "Введите пароль: \n";
+				std::getline(std::cin, password_Correct);
+				if ((login == login_Correct) && (password == password_Correct))
+				{
+					system("cls");
+					std::cout << "Хорош";
+					Sleep(3000);
+					break;
+				}
+				else
+				{
+					std::cout << "Плох";
+					Sleep(3000);
+				}
+			}
+		}
+	}*/
+/*	while (true)
+	{
+		std::cout << "\tАвторизация в учётную запись\n\n";
+
+		std::cout << "Введите логин (5-15 символов): ";
+		std::getline(std::cin, login_Correct);
+		for (int i = 0; i < login_Correct.size(); i++)
+		{
+			if (login_Correct[i] >= 5 && login_Correct[i] <= 15)
+			{
+				login = login_Correct;
+			}
+			else if (login_Correct[i] <= 5 || login_Correct[i] >= 15)
+			{
+				std::cout << "Неверный ввод! Попробуйте ещё раз.";
+			}
+		}
+
+
+		std::cout << "\nВведите пароль (5-15 символов): ";
+		std::getline(std::cin, password_Correct);
+		/*for (int i = 0; i < password_Correct.size(); i++)
+		{
+			if (password_Correct[i] >= 5 && password_Correct[i] <= 15)
+			{
+				std::cout << password_Correct;
+			}
+			else
+			{
+				std::cout << "Неверный ввод!\n";
+				return 0;
+			}
+		}
+	}
+*/	
